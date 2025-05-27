@@ -1,17 +1,5 @@
-{
-  "name": "genius-lyrics-api",
-  "version": "1.0.0",
-  "description": "Simple Genius lyrics scraper API with frontend",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "keywords": ["lyrics", "genius", "scraper", "express", "api"],
-  "author": "Mirrykal",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^1.4.0",
-    "cheerio": "^1.0.0-rc.12",
-    "express": "^4.18.2"
-  }
-}
+Flask
+requests
+beautifulsoup4
+
+gunicorn #Render or to run Flask app on any production server
