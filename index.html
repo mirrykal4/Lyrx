@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Watch & Subscribe</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      min-height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+    .video-container {
+      position: relative;
+      width: 80vw;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 25px;
+      background: black;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .subscribe-btn {
+      background-color: #ff0000;
+      color: white;
+      padding: 14px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255,0,0,0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 600;
+    }
+    .subscribe-btn:hover {
+      background-color: #cc0000;
+      box-shadow: 0 6px 18px rgba(204,0,0,0.8);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Watch My Video & Subscribe!</h1>
+
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/2ZRs4kxLfFI?autoplay=1&mute=1&controls=1&rel=0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen
+      title="YouTube Video">
+    </iframe>
+  </div>
+
+  <a href="https://www.youtube.com/channel/UCYourChannelID?sub_confirmation=1" target="_blank" class="subscribe-btn">
+    Subscribe to My Channel
+  </a>
+
+</body>
+</html>
