@@ -9,13 +9,19 @@ const PORT = process.env.PORT || 3000;
 async function getLyricsGenius(query) {
   try {
     const searchUrl = `https://genius.com/api/search/multi?per_page=1&q=${encodeURIComponent(query)}`;
-    const searchRes = await axios.get(searchUrl);
+    const searchRes = await axios.get(searchUrl, {
+      headers: { 'User-Agent': 'Mozilla/5.0' },
+      timeout: 7000
+    });
+
     const songPath = searchRes.data.response.sections[0].hits[0].result.path;
-
     const songUrl = `https://genius.com${songPath}`;
-    const pageRes = await axios.get(songUrl);
-    const $ = cheerio.load(pageRes.data);
+    const pageRes = await axios.get(songUrl, {
+      headers: { 'User-Agent': 'Mozilla/5.0' },
+      timeout: 7000
+    });
 
+    const $ = cheerio.load(pageRes.data);
     let lyrics = '';
     $('[data-lyrics-container="true"]').each((i, el) => {
       lyrics += $(el).text() + '\n';
@@ -23,6 +29,7 @@ async function getLyricsGenius(query) {
 
     return lyrics.trim() || 'Lyrics not found.';
   } catch (err) {
+    console.error("Error fetching lyrics:", err.message);
     return 'Lyrics not found or scraping failed.';
   }
 }
